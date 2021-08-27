@@ -1,16 +1,12 @@
 # preco_medio_ativos
 
-###
 **Resumo**: pequeno script para calcular o preço médio de ações em um dataframe considerando a ordem temporal de compra e venda entre esses diferentes ativos.
-###
 
 Considerando um investidor que toda vez que executa uma operação de venda ou de compra de um ativo negociado na bolsa de valores, anota tais informações, me deparei com um problema: sendo seis variáveis (ticker de determinado ativo, data da operação, tipo da operação - se foi uma compra ou uma venda, quantidade negociada, preço de compra ou de venda, e o valor total da operação) os dados mais relevantes, com diversas observações (negociações), se simplesmente fizermos o valor da operação dividido pela quantidade negociada para todos esses ativos, com o objetivo de obter o preço médio, incorreríamos no erro de não considerar a ordem temporal de compra e venda entre esses diferentes ativos.
 
 Há um tempo atrás, mais ou menos quando iniciei meus estudos em R, com o foco em calcular automatizadamente os preços médios (considerando as ordens de compra e venda), criei um script que recebia como input um arquivo _.xlsx_ contendo essas seis variáveis; e como output retornava um arquivo _.xlsx_ com duas variáveis (ticker e preço médio).
 
-**Nota**: claramente o código pode ser otimizado, porém com a ideia de expor o processo de criação 'raw' de um iniciante, deixei da forma em que se encontrava.
-
-Como foi esse processo?
+## Como foi esse processo?
 
 **1.** Lê-se o arquivo gerado pelo investidor com diferentes observações para as seis variáveis;
 
