@@ -1,6 +1,4 @@
-# preco_medio_ativos
-
-**Resumo**: pequeno script para calcular o preço médio de ações em um dataframe considerando a ordem temporal de compra e venda entre esses diferentes ativos.
+# Cálculo de preço médio de ações considerando a ordem temporal de compra e venda
 
 Considerando um investidor que toda vez que executa uma operação de venda ou de compra de um ativo negociado na bolsa de valores, anota tais informações, me deparei com um problema: sendo seis variáveis (ticker de determinado ativo, data da operação, tipo da operação - se foi uma compra ou uma venda, quantidade negociada, preço de compra ou de venda, e o valor total da operação) os dados mais relevantes, com diversas observações (negociações), se simplesmente fizermos o valor da operação dividido pela quantidade negociada para todos esses ativos, com o objetivo de obter o preço médio, incorreríamos no erro de não considerar a ordem temporal de compra e venda entre esses diferentes ativos.
 
