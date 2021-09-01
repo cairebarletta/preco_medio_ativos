@@ -3,9 +3,6 @@ library(readxl)
 library(openxlsx)
 library(dplyr)
 
-#definindo o diretorio de trabalho 
-setwd("C:/Users/Meu_Diretorio")
-
 #lendo o arquivo excel
 dados <- read_excel("operacoes.xlsx")
 
@@ -99,7 +96,30 @@ for (i in 1:length(ativos)){
 
 valores <- cbind(ativos, round(pm_atual, 2)) %>%
   as.data.frame() %>%
-  rename(Ticker = ativos, PM = V2)
+  mutate(PM = as.numeric(V2)) %>%
+  select(c(ativos, PM))
 
-#exportando pra um arquivo excel
-write.xlsx(valores, "precos_medios.xlsx")
+#header em negrito
+header <- createStyle(textDecoration = "bold",
+                  wrapText = FALSE)
+
+#formatacao dos numeros
+form1 <- createStyle(numFmt = "0.00")
+
+#criando a planilha
+plan <- createWorkbook()
+addWorksheet(plan, "precos_medios")
+
+#escrevendo os dados na planilha
+writeData(plan, sheet = 1, valores,
+          startCol = 1,
+          startRow = 1,
+          headerStyle = header)
+
+#adicionando a formatacao dos numeros
+addStyle(plan, sheet = 1, style = form1,
+         rows = 2:(nrow(valores) + 1),
+         cols = 2)
+
+#salvando a planilha
+saveWorkbook(plan, file = "output.xlsx", overwrite = T)
