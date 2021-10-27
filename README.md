@@ -4,7 +4,7 @@ Considerando um investidor que toda vez que executa uma operação de venda ou d
 
 Há um tempo atrás, mais ou menos quando iniciei meus estudos em R, com o foco em calcular automatizadamente os preços médios (considerando as ordens de compra e venda), criei um script que recebia como input um arquivo _.xlsx_ contendo essas seis variáveis; e como output retornava um arquivo _.xlsx_ com duas variáveis (ticker e preço médio).
 
-## Como foi esse processo?
+## Como é esse processo?
 
 **1.** Lê-se o arquivo gerado pelo investidor com diferentes observações para as seis variáveis;
 
